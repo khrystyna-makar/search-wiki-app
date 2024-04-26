@@ -1,21 +1,21 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import ReactAutocomplete from 'react-autocomplete'
-import {useSearch} from './hooks'
+import { useSearch, useDebounce } from './hooks'
 
 function App() {
   const [value, setValue] = useState('');
-  const {articles} = useSearch(value);
+  const { articles } = useSearch(useDebounce(value));
 
   return (
     <>
-     <ReactAutocomplete
+      <ReactAutocomplete
         items={articles}
-        shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
+        shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1} 
         getItemValue={item => item.label}
         renderItem={(item, highlighted) =>
           <div
             key={item.id}
-            style={{ backgroundColor: highlighted ? '#eee' : 'transparent'}}
+            style={{ backgroundColor: highlighted ? '#eee' : 'transparent' }}
           >
             {item.label}
           </div>
