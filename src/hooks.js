@@ -15,16 +15,16 @@ export const useSearch = (query) => {
       return;
     }
 
-    // if (cancelToken.current) {
-    //   console.log('cancel');
-    //   cancelToken.current.cancel();
-    // }
+    if (cancelToken.current) {
+      console.log('cancel');
+      cancelToken.current.cancel();
+    }
 
     cancelToken.current = axios.CancelToken.source();
     console.log('executing');
 
     axios.get(`https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=${query}`
-      //,  { cancelToken: cancelToken.current }
+      ,  { cancelToken: cancelToken.current.token }
     )
       .then(function (response) {
         const parsedResponse = [];
@@ -44,10 +44,10 @@ export const useSearch = (query) => {
         })
       })
       .catch(function (error) {
-        // if (axios.isCancel(error)) {
-        //   console.log('catch cancel');
-        //   return;
-        // }
+        if (axios.isCancel(error)) {
+          console.log('catch cancel');
+          return;
+        }
         setState({
           articles: [],
           status: 'ERROR',
