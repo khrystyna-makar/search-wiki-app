@@ -9,7 +9,7 @@ const Autocomplete = ({ articles, searchValue, onSearchChange }) => (
         renderInput={Input}
         inputProps={{ placeholder: 'Input a search term:' }}
         renderMenu={(children, value, style) => {
-            return articles && articles.length ?
+            return (articles && articles.length) ?
                 (<div style={{ ...style }} className='input-suggestions'>
                     {children}
                     <a href={`/search?query=${value}`} className='search-link'>
