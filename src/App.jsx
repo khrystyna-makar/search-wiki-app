@@ -7,9 +7,6 @@ import Home from './pages/Home';
 import Search from './pages/Search';
 import NotFound from './pages/NotFound';
 
-import Container from './components/Container';
-import Autocomplete from './components/Autocomplete';
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,7 +27,3 @@ const App = () => (
 )
 
 export default App
-
-{/* <Container>
-{({ searchValue, onSearchChange, articles }) => <Autocomplete articles={articles} onSearchChange={onSearchChange} searchValue={searchValue} />}
-</Container> */}
