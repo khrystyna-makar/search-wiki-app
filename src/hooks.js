@@ -16,12 +16,10 @@ export const useSearch = (query) => {
     }
 
     if (cancelToken.current) {
-      console.log('cancel');
       cancelToken.current.cancel();
     }
 
     cancelToken.current = axios.CancelToken.source();
-    console.log('executing');
 
     axios.get(`https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=${query}`
       ,  { cancelToken: cancelToken.current.token }
@@ -45,7 +43,6 @@ export const useSearch = (query) => {
       })
       .catch(function (error) {
         if (axios.isCancel(error)) {
-          console.log('catch cancel');
           return;
         }
         setState({
