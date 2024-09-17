@@ -2,6 +2,7 @@ import { useSearch } from "../../hooks";
 import { useSearchParams } from "react-router-dom";
 import Container from "../../components/Container";
 import Autocomplete from "../../components/Autocomplete";
+import ListItem from "../../components/ListItem";
 
 const Search = () => {
 
@@ -17,11 +18,8 @@ const Search = () => {
             </Container>
             {
                 (!articles.length && status === 'SUCCESS') ? <h3>No results for query: {query}</h3> :
-                    articles.map(article => {
-                        return <div key={article.id}>
-                            <a href={article.id} target="_blank">{article.label}</a>
-                        </div>
-                    })}
+                    articles.map(article => <ListItem key={article.id} {...article} />
+                    )}
         </div>
     )
 }
