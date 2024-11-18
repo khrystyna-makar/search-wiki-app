@@ -2,8 +2,6 @@
 
 exports[`Autocomplete component > when articles are NOT passed > should match renderMenu snapshot 1`] = `<React.Fragment />`;
 
-exports[`Autocomplete component > when articles are not passed > should match renderMenu snapshot 1`] = `<React.Fragment />`;
-
 exports[`Autocomplete component > when articles are passed > should match renderMenu snapshot 1`] = `
 <div
   className="input-suggestions"
