@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Input component > with props > should match snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`Input component > without props > should match snapshot 1`] = `ShallowWrapper {}`;
