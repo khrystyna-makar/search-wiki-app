@@ -1,29 +1,18 @@
 import {
-  createBrowserRouter,
-  RouterProvider
+  Routes,
+  Route
 } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Search from './pages/Search';
 import NotFound from './pages/NotFound';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/search",
-    element: <Search />,
-  },
-  {
-    path: "*",
-    element: <NotFound />,
-  }
-]);
-
 const App = () => (
-  <RouterProvider router={router} />
+  <Routes>
+    <Route exact path="/" element={<Home />} />
+    <Route path="/search" element={<Search />} />
+    <Route path="*" element={<NotFound />} />
+  </Routes>
 )
 
 export default App

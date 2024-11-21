@@ -1,37 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`App component > when home page is rendered > should match home page snapshot 1`] = `
-<MemoryRouter
-  initialEntries={
-    [
-      "/",
-    ]
-  }
->
-  <App />
-</MemoryRouter>
-`;
+exports[`App component > when home page is rendered > should match home page snapshot 1`] = `ReactWrapper {}`;
 
-exports[`App component > when not found page is rendered > should match not found page snapshot 1`] = `
-<MemoryRouter
-  initialEntries={
-    [
-      "/hdghgf",
-    ]
-  }
->
-  <App />
-</MemoryRouter>
-`;
-
-exports[`App component > when search page is rendered > should match search page snapshot 1`] = `
-<MemoryRouter
-  initialEntries={
-    [
-      "/search",
-    ]
-  }
->
-  <App />
-</MemoryRouter>
-`;
+exports[`App component > when not found page is rendered > should match not found page snapshot 1`] = `ReactWrapper {}`;
