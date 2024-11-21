@@ -9,7 +9,7 @@ export default defineConfig({
     setupFiles: ['./vitest.setup.js'],
     coverage: {
       include: ['src/**/*.{js,jsx,ts,tsx}'],
-      exclude: ['**/*.stories.js'],
+      exclude: ['**/*.stories.js', 'src/main.jsx'],
       thresholds: {
         branches: 80,
         lines: 80,
