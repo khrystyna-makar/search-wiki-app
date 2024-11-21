@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from 'react'
 import axios from 'axios'
 
-export const useSearch = (query, limit = 10) => {
+export const useSearch = (query = '', limit = 10) => {
   const [state, setState] = useState({
     articles: [],
     status: 'IDLE',
@@ -20,6 +20,8 @@ export const useSearch = (query, limit = 10) => {
     }
 
     cancelToken.current = axios.CancelToken.source();
+
+    setState({...state, status: 'PENDING'});
 
     axios.get(`https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=${query}&limit=${limit}`
       ,  { cancelToken: cancelToken.current.token }
